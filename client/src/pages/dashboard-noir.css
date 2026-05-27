@@ -1,0 +1,201 @@
+/* Custom Animations */
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes border-spin {
+    from { --gradient-angle: 0deg; }
+    to { --gradient-angle: 360deg; }
+}
+
+@keyframes shimmer {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes animStar {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-2000px); }
+}
+
+@property --gradient-angle { 
+    syntax: "<angle>"; 
+    initial-value: 0deg; 
+    inherits: false; 
+}
+
+.animate-fade-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.font-manrope { font-family: 'Manrope', sans-serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* Shiny CTA Button */
+.shiny-cta {
+    --gradient-angle: 0deg;
+    position: relative;
+    overflow: hidden;
+    border-radius: 9999px;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(var(--bg-body), var(--bg-body)) padding-box,
+    conic-gradient(from var(--gradient-angle), transparent 0%, var(--accent-1) 5%, var(--accent-1) 15%, var(--accent-1) 30%, transparent 40%, transparent 100%) border-box;
+    border: 2px solid transparent;
+    cursor: pointer;
+    isolation: isolate;
+    animation: border-spin 2.5s linear infinite;
+}
+
+.shiny-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, white 0.5px, transparent 0);
+    background-size: 4px 4px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Parallax Stars */
+.stars-1 { box-shadow: 234px 124px #fff, 654px 345px #fff, 876px 12px #fff, 1200px 800px #fff, 400px 1500px #fff, 1800px 200px #fff, 100px 1000px #fff, 900px 1900px #fff, 500px 600px #fff, 1400px 100px #fff, 300px 400px #fff, 1600px 1200px #fff; }
+.stars-2 { box-shadow: 123px 456px #fff, 789px 234px #fff, 456px 890px #fff, 1100px 300px #fff, 200px 1200px #fff, 1500px 500px #fff, 600px 1700px #fff, 1300px 900px #fff; }
+
+.gradient-blur {
+    position: fixed;
+    z-index: 40;
+    inset: 0 0 auto 0;
+    height: 120px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    backdrop-filter: blur(8px);
+    mask-image: linear-gradient(to bottom, black, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.selection-blue::selection {
+    background: var(--accent-1);
+    color: white;
+}
+
+.text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    color: transparent;
+}
+
+@media (max-width: 768px) {
+    .selection-blue header {
+        padding-top: 0.75rem !important;
+    }
+
+    .selection-blue header nav {
+        border-radius: 1.25rem !important;
+        padding: 0.75rem 0.875rem !important;
+        gap: 0.75rem !important;
+    }
+
+    .selection-blue header nav > div:first-child {
+        min-width: 0;
+    }
+
+    .selection-blue header nav > div:first-child span {
+        font-size: 0.9rem !important;
+        white-space: nowrap;
+    }
+
+    .selection-blue header nav button {
+        padding-left: 0.875rem !important;
+        padding-right: 0.875rem !important;
+    }
+
+    .selection-blue main section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .selection-blue main section:first-child {
+        min-height: auto !important;
+        padding-top: 7rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    .selection-blue h1 {
+        font-size: clamp(2.55rem, 13vw, 4.25rem) !important;
+        line-height: 0.98 !important;
+        letter-spacing: -0.055em !important;
+        overflow-wrap: anywhere;
+    }
+
+    .selection-blue h2 {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+        line-height: 1.05 !important;
+    }
+
+    .selection-blue h3 {
+        line-height: 1.12 !important;
+    }
+
+    .selection-blue p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .selection-blue .shiny-cta {
+        width: 100%;
+        padding: 0.95rem 1.25rem;
+    }
+
+    .selection-blue .shiny-cta + button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.95rem 1.25rem !important;
+    }
+
+    .selection-blue .grid {
+        min-width: 0;
+    }
+
+    .selection-blue .rounded-xl {
+        border-radius: 1rem !important;
+    }
+
+    .selection-blue .p-8 {
+        padding: 1.25rem !important;
+    }
+
+    .selection-blue .py-32 {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+
+    .selection-blue .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .selection-blue .mt-32 {
+        margin-top: 3rem !important;
+    }
+
+    .selection-blue .mb-20 {
+        margin-bottom: 2.5rem !important;
+    }
+
+    .selection-blue .scale-105 {
+        transform: none !important;
+    }
+
+    .selection-blue input[type="email"] {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .selection-blue footer {
+        padding-top: 3rem !important;
+    }
+
+    .selection-blue footer ul,
+    .selection-blue footer p {
+        overflow-wrap: anywhere;
+    }
+}

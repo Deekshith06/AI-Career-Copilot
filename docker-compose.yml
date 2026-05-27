@@ -1,0 +1,29 @@
+services:
+  backend:
+    build: ./server
+    ports:
+      - "5001:5000"   # changed to avoid port conflict
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/ai-career
+    depends_on:
+      - mongo
+    restart: always   # auto restart
+
+  frontend:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: always
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db   # data persistence
+    restart: always
+
+volumes:
+  mongo-data:

@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# env files (CRITICAL)
+.env
+server/.env
+client/.env
+
+# build files
+client/build/
+build/
+dist/
+
+# logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# docker
+docker-compose.override.yml
